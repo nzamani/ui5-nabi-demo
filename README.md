@@ -34,7 +34,7 @@ A UI5 Library for demo pusporses. I use this library mostly for my tutorials.
 
 1. Run npm start to lint, build and run a local server (have a look into `Gruntfile.js` to see all the tasks).
 
-	<!-- ```sh -->
+	```sh
 	npm start
 	```
 
