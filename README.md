@@ -23,7 +23,7 @@ A UI5 Library for demo pusporses. I use this library mostly for my tutorials.
 
 	```sh
 	git clone https://github.com/nzamani/ui5-nabi-demo
-	cd ui5-nabi-m
+	cd ui5-nabi-demo
 	```
 
 1. Install all npm dependencies (also installs all bower dependencies)
