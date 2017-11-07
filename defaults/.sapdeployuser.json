@@ -1,0 +1,18 @@
+{
+	"upload_build_abap_750":{
+		"options":{
+			"auth":{
+				"user": "myUser",
+				"pwd": "myPwd"
+			}
+		}
+	},
+	"upload_build_abap_740": {
+		"options":{
+			"auth":{
+				"user": "myUser",
+				"pwd": "myPwd"
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"name": "ui5-nabi-demo",
+	"description": "UI5 Nabi Demo",
+	"private": true,
+	"dependencies": {
+		"openui5-sap.ui.core": "openui5/packaged-sap.ui.core",
+		"openui5-sap.m": "openui5/packaged-sap.m",
+		"openui5-sap.f": "openui5/packaged-sap.f",
+		"openui5-sap.ui.layout": "openui5/packaged-sap.ui.layout",
+		"openui5-sap.ui.unified": "openui5/packaged-sap.ui.unified",
+		"openui5-themelib_sap_belize": "openui5/packaged-themelib_sap_belize"
+	}
+}

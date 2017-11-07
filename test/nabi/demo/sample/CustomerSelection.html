@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Sample for nabi.demo.comp.reuse.northwind.customer.selection Reuse Component</title>
+
+		<script id="sap-ui-bootstrap"
+			src="../../../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-preload="async"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{
+				"nabi.sample.customerSelection": "./customerSelection/webapp/"
+			}'>
+		</script>
+
+		<script>
+			sap.ui.getCore().attachInit(function () {
+
+				sap.ui.require([
+					"nabi/sample/customerSelection/localService/mockserver",
+					"sap/m/Shell",
+					"sap/ui/core/ComponentContainer"
+				], function (mockserver, Shell, ComponentContainer) {
+					mockserver.init();
+					new Shell({
+						app : new ComponentContainer({
+							height : "100%",
+							name : "nabi.sample.customerSelection"
+						})
+					}).placeAt("content");
+				});
+
+			});
+		</script>
+	</head>
+	<body id="content" class="sapUiBody">
+	</body>
+</html>

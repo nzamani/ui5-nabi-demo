@@ -1,0 +1,88 @@
+{
+	"_version": "1.7.0",
+
+	"sap.app": {
+		"id": "nabi.demo.comp.reuse.northwind.customer.selectionBtn",
+		"type": "component",
+		"embeddedBy" : "../../../../../",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{compTitle}}",
+		"description": "{{compDescription}}",
+		"resources" : "resources.json",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+
+	"sap.ui5": {
+		"componentName" : "nabi.demo.comp.reuse.northwind.customer.selectionBtn",
+		"dependencies": {
+			"minUI5Version": "1.44.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			},
+			"components" : {}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"handleValidation" : true,
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "nabi.demo.comp.reuse.northwind.customer.selectionBtn.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "quickinfo,heading"
+					},
+					"defaultCountMode" : "Inline",
+					"json" : true,
+					"useBatch" : true,
+					"disableHeadRequestForToken" : true
+				}
+			}
+		},
+		"resources": {
+			"css": [],
+			"js" : []
+		}
+	}
+
+}

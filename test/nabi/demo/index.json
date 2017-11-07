@@ -1,0 +1,27 @@
+{
+	"nabi.demo": {
+		"icon": "sap-icon://pdf-reader",
+		"name": "Nabi Demo",
+		"description": "Nabi Demo library",
+		"source" : "https://github.com/nzamani/ui5-nabi-demo",
+		"documentation": "https://github.com/nzamani/ui5-nabi-demo/blob/master/README.md",
+		"license" : "Apache 2.0",
+		"version": 1.0,
+		"content": {
+			"CustomerSelectionComponent": {
+				"id": "CustomerSelectionComponent",
+				"name": "Customer Selection Reuse Component",
+				"type": "component",
+				"version": 1.0,
+				"description": "Easily selecting customers from list coming from Northwind V2",
+				"samples": [
+					{
+						"id": "CustomerSelection",
+						"name": "Customer Selection",
+						"description": "Open a customer selection dialog via rendered button + via own button"
+					}
+				]
+			}
+		}
+	}
+}

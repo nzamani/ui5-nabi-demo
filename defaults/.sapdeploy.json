@@ -1,0 +1,42 @@
+{
+	"upload_build_abap_750": {
+		"options": {
+			"conn": {
+				"server": "https://myserver750:8181",
+				"useStrictSSL" : true
+			},
+			"ui5": {
+				"package": "ZZ_UI5_REPO",
+				"bspcontainer": "ZZ_UI5_TRACKED",
+				"bspcontainer_text": "UI5 upload",
+				"transportno": "DEVK900000",
+				"language" : "EN",
+				"calc_appindex": true
+			},
+			"resources": {
+				"cwd": "<%= dir.dist %>/resources",
+				"src": "**/*.*"
+			}
+		}
+	},
+	"upload_build_abap_740": {
+		"options": {
+			"conn": {
+				"server": "https://myserver740:8181",
+				"useStrictSSL" : true
+			},
+			"ui5": {
+				"package": "ZZ_UI5_REPO",
+				"bspcontainer": "ZZ_UI5_TRACKED",
+				"bspcontainer_text": "UI5 upload",
+				"transportno": "DEVK900000",
+				"language" : "EN",
+				"calc_appindex": true
+			},
+			"resources": {
+				"cwd": "<%= dir.dist %>/resources",
+				"src": "**/*.*"
+			}
+		}
+	}
+}

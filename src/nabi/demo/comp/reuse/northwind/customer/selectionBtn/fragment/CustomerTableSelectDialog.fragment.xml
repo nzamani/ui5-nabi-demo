@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <TableSelectDialog
+		contentWidth="80%"
+		title="{i18n>compTitle}"
+		search="onCustomerSearch"
+		confirm="onCustomerSelected"
+		cancel="onCustomerSelectDialogCancelled"
+		growingThreshold="50"
+		busyIndicatorDelay="0">
+
+		<!--
+		this stuff is  done in component:
+		items="{
+			path: '/Customers',
+			templateShareable:false
+		}"
+		<items>
+			<core:Fragment fragmentName="nabi.demo.comp.reuse.northwind.customer.selectionBtn.fragment.CustomerTableSelectDialogItem" type="XML" />
+		</items>
+		-->
+
+		<columns>
+			<Column>
+				<header>
+					<Text text="{i18n>comp.col.customer.id}"/>
+				</header>
+			</Column>
+			<Column>
+        		<header>
+					<Text text="{i18n>comp.col.customer.companyName}"/>
+				</header>
+			</Column>
+		</columns>
+
+	</TableSelectDialog>
+
+</core:FragmentDefinition>

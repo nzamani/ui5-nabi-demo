@@ -1,0 +1,117 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "nabi.sample.customerSelection",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}"
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "nabi.sample.customerSelection.view.App",
+			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "nabi.sample.customerSelection.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			}],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel" : 1
+				}
+			}
+		},
+		"dependencies": {
+			"minUI5Version": "1.44.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"nabi.demo": {}
+			},
+			"components" : {
+				"nabi.demo.comp.reuse.northwind.customer.selection" : {},
+				"nabi.demo.comp.reuse.northwind.customer.selectionBtn" : {}
+			}
+		},
+		"componentUsages":{
+			"simpleCustomerSelectionWithoutButton" :{
+				"name" : "nabi.demo.comp.reuse.northwind.customer.selection",
+				"settings" : {},
+				"componentData" : {
+					"renderButton" : false
+				}
+			},
+			"simpleCustomerSelectionWithButton" :{
+				"name" : "nabi.demo.comp.reuse.northwind.customer.selection",
+				"settings" : {},
+				"componentData" : {
+					"renderButton" : true
+				}
+			},
+			"simpleCustomerSelectionBtn1" :{
+				"name" : "nabi.demo.comp.reuse.northwind.customer.selectionBtn",
+				"settings" : {},
+				"componentData" : {}
+			},
+			"simpleCustomerSelectionBtn2" :{
+				"name" : "nabi.demo.comp.reuse.northwind.customer.selectionBtn",
+				"settings" : {},
+				"componentData" : {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "nabi.sample.customerSelection.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		}
+	}
+}
