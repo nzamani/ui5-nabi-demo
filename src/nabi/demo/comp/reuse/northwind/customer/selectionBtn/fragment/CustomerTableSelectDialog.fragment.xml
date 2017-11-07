@@ -9,18 +9,20 @@
 		confirm="onCustomerSelected"
 		cancel="onCustomerSelectDialogCancelled"
 		growingThreshold="50"
-		busyIndicatorDelay="0">
-
-		<!--
-		this stuff is  done in component:
+		busyIndicatorDelay="0"
 		items="{
 			path: '/Customers',
 			templateShareable:false
-		}"
+		}">
+
 		<items>
-			<core:Fragment fragmentName="nabi.demo.comp.reuse.northwind.customer.selectionBtn.fragment.CustomerTableSelectDialogItem" type="XML" />
+			<ColumnListItem>
+				<cells>
+					<Text text="{CustomerID}"/>
+					<Text text="{CompanyName}"/>
+				</cells>
+			</ColumnListItem>
 		</items>
-		-->
 
 		<columns>
 			<Column>

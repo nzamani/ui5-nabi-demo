@@ -68,20 +68,6 @@ sap.ui.define([
 		return oTSD;
 	};
 
-	/**
-	 * The component is destroyed by UI5 automatically.
-	 * @public
-	 * @override
-	 */
-	Component.prototype.destroy = function () {
-		// call the base component's destroy function
-		UIComponent.prototype.destroy.apply(this, arguments);
-
-		if (this._oCustomerSelectDialogTemplate) {
-			this._oCustomerSelectDialogTemplate.destroy();
-		}
-	};
-
 	//=============================================================================
 	//OVERRIDE SETTERS
 	//=============================================================================
@@ -102,6 +88,10 @@ sap.ui.define([
 	//PUBLIC APIS
 	//=============================================================================
 
+	/**
+	 * Opens the dialog for selecting a customer.
+	 * @public
+	 */
 	Component.prototype.open = function () {
 		this.onShowCustomerSelectDialog();
 	};
@@ -111,21 +101,8 @@ sap.ui.define([
 	//=============================================================================
 
 	Component.prototype.onShowCustomerSelectDialog = function () {
-		var oTSD, oBinding;
-
-		oTSD = this._getCustomerSelectDialog();
-		oBinding = oTSD.getBinding("items");
-		if (!oBinding){
-			oTSD.bindItems({
-				path : "/Customers",
-				template : this._getCustomerSelectDialogTemplate(),
-				templateShareable : true,
-				sorter : null,
-				filters : null,
-				parameters : null
-			});
-		}
-		//oBinding.filter();		//reset not needed here because done automatically
+		var oTSD = this._getCustomerSelectDialog();
+		//oTSD.getBinding("items").filter();		//reset not needed here because done automatically
 		oTSD.open();
 	};
 
@@ -146,21 +123,6 @@ sap.ui.define([
 		oTSD = this._getCustomerSelectDialog();
 		oBinding = oTSD.getBinding("items");
 		oBinding.filter(oFilter);
-		/*
-		oTSD.bindItems({
-			path : "/Customers",
-			template : this._getCustomerSelectDialogTemplate(),
-			templateShareable : true,
-			sorter : null,
-			filters : oFilter,
-			parameters : {
-				custom : {
-					search : sQuery		// this is for SAP GW OData V2 Guys while OData V4 supports $search :-)
-				}
-			}
-		});
-		*/
-
 	};
 
 	Component.prototype.onCustomerSelected = function(oEvent) {
@@ -183,6 +145,12 @@ sap.ui.define([
 	//PRIVATE APIS
 	//=============================================================================
 
+	/**
+	 * Returns the singleton Button which allows to open a dialog for selecting a customer. If the button
+	 * does not exist it will be instantiated automatically.
+	 * @private
+	 * @return {sap.m.Button} the button (sigleton)
+	 */
 	Component.prototype._getOpenButton = function () {
 		if (!this._oBtn) {
 			this._oBtn = new Button(this.createId("openSelectDialogBtn"),{
@@ -193,6 +161,12 @@ sap.ui.define([
 		return this._oBtn;
 	};
 
+	/**
+	 * Returns the singleton TableSelectDialog which allows to select a customer. If the TableSelectDialog
+	 * does not exist it will be instantiated automatically.
+	 * @private
+	 * @return {sap.m.TableSelectDialog} the dialog (sigleton)
+	 */
 	Component.prototype._getCustomerSelectDialog = function () {
 		if (!this._oTSD) {
 			this._oTSD = sap.ui.xmlfragment(this.getId(), "nabi.demo.comp.reuse.northwind.customer.selection.fragment.CustomerTableSelectDialog", this);
@@ -201,17 +175,10 @@ sap.ui.define([
 		return this._oTSD;
 	};
 
-	Component.prototype._getCustomerSelectDialogTemplate = function () {
-		if (!this._oCustomerSelectDialogTemplate) {
-			this._oCustomerSelectDialogTemplate = sap.ui.xmlfragment(this.getId(), "nabi.demo.comp.reuse.northwind.customer.selection.fragment.CustomerTableSelectDialogItem");
-		}
-		return this._oCustomerSelectDialogTemplate;
-	};
-
 	/**
 	 * This method can be called to determine whether the sapUiSizeCompact or sapUiSizeCozy
 	 * design mode class should be set, which influences the size appearance of some controls.
-	 * @public
+	 * @private
 	 * @return {string} css class, either 'sapUiSizeCompact' or 'sapUiSizeCozy' - or an empty string if no css class should be set
 	 */
 	Component.prototype.getContentDensityClass = function() {

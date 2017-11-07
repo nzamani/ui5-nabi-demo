@@ -13,8 +13,12 @@
 		<content>
 			<VBox id="myVBox">
 
-				<!-- own button to open the component's dialog - component loaded in controller -->
+				<!--
+					our own button to open the component's dialog - component loaded in
+					controller (usage = simpleCustomerSelectionWithoutButton)
+				-->
 				<Button
+					id="myCustomBtn"
 					text="My Own Trigger Button"
 					press="onOpenCustomerSelection"
 					enabled="{view>/customerSelectionLoaded}"/>
@@ -35,6 +39,11 @@
 				<core:ComponentContainer
 					id="compNew2"
 					usage="simpleCustomerSelectionBtn2"
+					async="true"
+					componentCreated="onComponentCreated"/> <!-- componentCreated event since 1.50 -->
+				<core:ComponentContainer
+					id="mySimpleCustomerSelectionWithButton"
+					usage="simpleCustomerSelectionWithButton"
 					async="true"
 					componentCreated="onComponentCreated"/> <!-- componentCreated event since 1.50 -->
 
