@@ -1,6 +1,6 @@
 # ui5-nabi-demo
 
-A UI5 Library for demo pusporses. I use this library mostly for my tutorials.
+A UI5 Library for demo purposes. I use this library mostly for my tutorials.
 
 
 ## Getting started
