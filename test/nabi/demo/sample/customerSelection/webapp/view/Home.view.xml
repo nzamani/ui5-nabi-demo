@@ -23,6 +23,14 @@
 					press="onOpenCustomerSelection"
 					enabled="{view>/customerSelectionLoaded}"/>
 
+				<!--
+					old ui5 versions don't have the event componentCreated.
+					They don't even support usages. This example places the ComponentContainer
+					into the view while the component is set after it has been loaded via controller.
+					See _loadSecondComponentManually() in controller for workaround.
+				-->
+				<core:ComponentContainer id="compOldUi5Versions"/>
+
 				<!-- old way -->
 				<core:ComponentContainer
 					id="compOld"

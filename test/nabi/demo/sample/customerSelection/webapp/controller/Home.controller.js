@@ -16,6 +16,11 @@ sap.ui.define([
 			});
 			this.getView().setModel(oModel, "view");
 
+			this._loadFirstComponentManually();
+			this._loadSecondComponentManually();	//works also in older ui5 versions
+		},
+
+		_loadFirstComponentManually : function (){
 			this.getOwnerComponent().createComponent({
 				usage: "simpleCustomerSelectionWithoutButton",
 				settings: {},
@@ -24,7 +29,8 @@ sap.ui.define([
 				},
 				async: true
 			}).then(function(oComp){
-				// needed for onExit() to destroy it in order to avoid memory leaks
+				var oModel = this.getView().getModel("view");
+				// needed to open the component's dialog
 				this._oCustomerSelectionComp = oComp;
 
 				oModel.setProperty("/customerSelectionLoaded", true);
@@ -39,7 +45,28 @@ sap.ui.define([
 			}.bind(this)).catch(function(oError) {
 				jQuery.sap.log.error(oError);
 			});
+		},
 
+		/**
+		 * This is a workaround for older versions of UI5 where the <code>ComponentContainer</code>
+		 * doesn't support the event <code>componentCreated</code>. This approach allows to place the
+		 * <code>ComponentContainer</code> somewhere in your view and set the component later after
+		 * the component has been loaded. This also allows to access the loaded component directly right after
+		 * it's available.
+		 */
+		_loadSecondComponentManually : function (){
+			sap.ui.component({
+				name: "nabi.demo.comp.reuse.northwind.customer.selection",
+				settings: {},
+				componentData: {},
+				async: true
+			}).then(function(oComp){
+				oComp.setText("For old UI5 versions");
+				oComp.attachCustomerSelected(this.onCustomerSelected);
+				this.byId("compOldUi5Versions").setComponent(oComp);
+			}.bind(this)).catch(function(oError) {
+				jQuery.sap.log.error(oError);
+			});
 		},
 
 		onComponentCreated : function(oEvent){
@@ -67,11 +94,7 @@ sap.ui.define([
 			console.log(oCustomer);
 		},
 
-		onExit : function() {
-			if (this._oCustomerSelectionComp) {
-				this._oCustomerSelectionComp.destroy();
-			}
-		}
+		onExit : function() { }
 
 	});
 });
