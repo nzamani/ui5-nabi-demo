@@ -26,9 +26,11 @@ sap.ui.define(['jquery.sap.global', 'sap/ui/core/library'],
 		dependencies : ["sap.ui.core", "sap.m" , "sap.ui.unified"],
 		types: [],
 		interfaces: [],
-		controls: [],
+		controls: [
+			"nabi.demo.ProductRating"
+		],
 		elements: [],
-		noLibraryCSS: false,
+		noLibraryCSS: true,
 		version: "0.1.0"
 	});
 

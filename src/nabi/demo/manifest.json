@@ -3,7 +3,10 @@
 	"sap.app": {
 		"id": "nabi.demo",
 		"type": "library",
-		"embeds":[],
+		"embeds":[
+			"comp/reuse/northwind/customer/selection",
+			"comp/reuse/northwind/customer/selectionBtn"
+		],
 		"applicationVersion":{
 			"version":"0.2.0"
 		 },
