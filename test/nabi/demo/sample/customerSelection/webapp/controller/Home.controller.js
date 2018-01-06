@@ -37,9 +37,7 @@ sap.ui.define([
 				oComp.attachCustomerSelected(this.onCustomerSelected);
 				//to avoid "The Popup content is NOT connected with a UIArea and may not work properly!"
 				this.byId("myVBox").addItem(new ComponentContainer({
-					settings: {
-						renderButton : false
-					},
+					//settings: { renderButton : false },
 					component : oComp
 				}));
 			}.bind(this)).catch(function(oError) {
@@ -49,7 +47,7 @@ sap.ui.define([
 
 		/**
 		 * This is a workaround for older versions of UI5 where the <code>ComponentContainer</code>
-		 * doesn't support the event <code>componentCreated</code>. This approach allows to place the
+		 * doesn't support the event <code>componentCreated</code> and the property <code>usage</code>. This approach allows to place the
 		 * <code>ComponentContainer</code> somewhere in your view and set the component later after
 		 * the component has been loaded. This also allows to access the loaded component directly right after
 		 * it's available.

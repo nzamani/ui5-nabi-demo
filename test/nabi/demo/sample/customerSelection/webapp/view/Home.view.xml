@@ -50,7 +50,7 @@
 					async="true"
 					componentCreated="onComponentCreated"/> <!-- componentCreated event since 1.50 -->
 				<core:ComponentContainer
-					id="mySimpleCustomerSelectionWithButton"
+					id="compNew3"
 					usage="simpleCustomerSelectionWithButton"
 					async="true"
 					componentCreated="onComponentCreated"/> <!-- componentCreated event since 1.50 -->

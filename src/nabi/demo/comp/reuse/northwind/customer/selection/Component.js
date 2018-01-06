@@ -63,8 +63,6 @@ sap.ui.define([
 			oBtn.addDependent(oTSD);
 			return oBtn;
 		}
-		// if we get here we might see the following logging if the dialog is opened:
-		// "The Popup content is NOT connected with a UIArea and may not work properly!"
 		return oTSD;
 	};
 
@@ -102,12 +100,18 @@ sap.ui.define([
 
 	Component.prototype.onShowCustomerSelectDialog = function () {
 		var oTSD = this._getCustomerSelectDialog();
-		//oTSD.getBinding("items").filter();		//reset not needed here because done automatically
+		//oTSD.getBinding("items").filter();	//reset not needed here (done in onCustomerSearch which is also triggered if dialog closes)
 		oTSD.open();
 	};
 
 	Component.prototype.onCustomerSearch = function (oEvent) {
 		var oFilter, sQuery, oBinding, oTSD;
+
+		oTSD = this._getCustomerSelectDialog();
+		oBinding = oTSD.getBinding("items");
+		if (!oBinding){
+			return;
+		}
 
 		sQuery = $.trim( oEvent.getParameter("value") );
 
@@ -120,8 +124,6 @@ sap.ui.define([
 				and : false
 			});
 		}
-		oTSD = this._getCustomerSelectDialog();
-		oBinding = oTSD.getBinding("items");
 		oBinding.filter(oFilter);
 	};
 

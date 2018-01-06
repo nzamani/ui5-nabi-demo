@@ -14,8 +14,7 @@ sap.ui.define([
 		metadata : {
 			manifest: "json",
 			properties : {
-				text: { type : "string", defaultValue : "Default Text"},
-				renderButton: { type : "boolean", defaultValue : true}
+				text: { type : "string", defaultValue : "Default Text"}
 			},
 			aggregations : { },
 			events : {
@@ -91,12 +90,18 @@ sap.ui.define([
 
 	Component.prototype.onShowCustomerSelectDialog = function () {
 		var oTSD = this._getCustomerSelectDialog();
-		//oTSD.getBinding("items").filter();		//reset not needed here because done automatically
+		//oTSD.getBinding("items").filter();	//reset not needed here (done in onCustomerSearch which is also triggered if dialog closes)
 		oTSD.open();
 	};
 
 	Component.prototype.onCustomerSearch = function (oEvent) {
 		var oTSD, oFilter, sQuery, oBinding;
+
+		oTSD = this._getCustomerSelectDialog()
+		oBinding = oTSD.getBinding("items");
+		if (!oBinding){
+			return;
+		}
 
 		sQuery = $.trim( oEvent.getParameter("value") );
 
@@ -109,8 +114,6 @@ sap.ui.define([
 				and : false
 			});
 		}
-		oTSD = this._getCustomerSelectDialog()
-		oBinding = oTSD.getBinding("items");
 		oBinding.filter(oFilter);
 	};
 
