@@ -97,7 +97,7 @@ sap.ui.define([
 	Component.prototype.onCustomerSearch = function (oEvent) {
 		var oTSD, oFilter, sQuery, oBinding;
 
-		oTSD = this._getCustomerSelectDialog()
+		oTSD = this._getCustomerSelectDialog();
 		oBinding = oTSD.getBinding("items");
 		if (!oBinding){
 			return;
