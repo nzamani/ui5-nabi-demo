@@ -1,5 +1,5 @@
 {
-	"_version": "1.7.0",
+	"_version": "1.9.0",
 	"sap.app": {
 		"id": "nabi.demo",
 		"type": "library",
@@ -14,7 +14,7 @@
 		"description":"Nabi Demo Library by nabisoft",
 		"openSourceComponents": [],
 		"resources": "resources.json",
-        "offline": true
+		"offline": true
 	},
 
 	"sap.ui": {
