@@ -20,12 +20,24 @@
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "nabi.sample.customerSelection"
-					})
-				}).placeAt("content");
+				sap.ui.component({
+					name : "nabi.sample.customerSelection",
+					async : true,
+					//manifestFirst : true,	// deprecated - replaced with "manifest" from 1.49+
+					manifest : true
+				}).then(function(oComponent){
+					sap.ui.require([
+						"sap/m/Shell",
+						"sap/ui/core/ComponentContainer"
+					], function (Shell, ComponentContainer) {
+						new Shell({
+							app : new ComponentContainer({
+								height : "100%",
+								component : oComponent
+							})
+						}).placeAt("content");
+					});
+				});
 			});
 		</script>
 	</head>
