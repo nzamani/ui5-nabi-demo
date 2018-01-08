@@ -57,7 +57,9 @@ sap.ui.define([
 				name: "nabi.demo.comp.reuse.northwind.customer.selection",
 				settings: {},
 				componentData: {},
-				async: true
+				async: true,
+				//manifestFirst : true,	//deprecated - replaced with "manifest" from 1.49+
+				manifest : true			//SAPUI5 >= 1.49
 			}).then(function(oComp){
 				oComp.setText("For old UI5 versions");
 				oComp.attachCustomerSelected(this.onCustomerSelected);
